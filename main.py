@@ -44,6 +44,14 @@ async def get_gk_all_data():
         items.append(gk_helper(document))
     return items
 
+@app.get("/gktrainings/show_data")
+async def show_gk_all_data():
+    items = []
+    cursor = gk_data.find({})
+    async for document in cursor:
+        items.append(gk_helper(document))
+    return items
+
 
 @app.get("/gktrainings/showcollections")
 async def get_all_collections():
